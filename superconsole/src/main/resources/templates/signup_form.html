@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Sign Up - TroopTracker</title>
+	<style th:inline="text">
+		body {
+			background: url([[@{/images/olive-green.jpg}]]) no-repeat center center fixed;
+		}
+
+		input[type=text],
+		select {
+			width: 50%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			font-size: large;
+
+		}
+
+		input[type=password],
+		select {
+			width: 50%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			font-size: large;
+
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="/css/main.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container text-center">
+		<div class="centerindex">
+			<img th:src="@{/images/logo.png}" width=" 700" height="300" alt="TroopTracker">
+			<h1>Soldier Registration</h1>
+
+			<form th:action="@{/process_register}" th:object="${user}" method="post">
+				<div class="m-3">
+					<div class="form-group row">
+						<label class="register">E-mail: </label>
+						<div class="col-8">
+							<input type="text" th:field="*{email}" class="form-control" required placeholder="Email" />
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="register">Password: </label>
+						<div class="col-8">
+							<input type="password" th:field="*{password}" class="form-control" required minlength="6"
+								maxlength="10" placeholder="Password" />
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="register">Rank: </label>
+						<div class="col-8">
+							<input type="text" th:field="*{grade}" class="form-control" required minlength="2"
+								maxlength="20" placeholder="Rank" />
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="register">First Name: </label>
+					<div class="col-8">
+						<input type="text" th:field="*{firstName}" class="form-control" required minlength="2"
+							maxlength="20" placeholder="First Name" />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="register">Last Name: </label>
+					<div class="col-8">
+						<input type="text" th:field="*{lastName}" class="form-control" required minlength="2"
+							maxlength="20" placeholder="Last Name" />
+					</div>
+				</div>
+
+				<div>
+					<button type="submit" class="button primary">Sign Up</button>
+				</div>
+		</div>
+		</form>
+	</div>
+</body>
+
+</html>
