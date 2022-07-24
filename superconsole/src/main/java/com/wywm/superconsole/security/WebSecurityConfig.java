@@ -1,8 +1,7 @@
-package com.wywm.superconsole.controller.security;
+package com.wywm.superconsole.security;
 
-import javax.sql.DataSource;
 
-import com.wywm.superconsole.controller.user.TroopUserDetailsService;
+import com.wywm.superconsole.user.TroopUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity

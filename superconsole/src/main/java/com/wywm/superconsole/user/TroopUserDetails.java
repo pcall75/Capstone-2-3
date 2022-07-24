@@ -1,7 +1,8 @@
-package com.wywm.superconsole.controller.user;
+package com.wywm.superconsole.user;
 
 import java.util.Collection;
 
+import com.wywm.superconsole.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

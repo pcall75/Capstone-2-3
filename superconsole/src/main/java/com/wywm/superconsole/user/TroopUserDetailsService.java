@@ -1,4 +1,4 @@
-package com.wywm.superconsole.controller.user;
+package com.wywm.superconsole.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

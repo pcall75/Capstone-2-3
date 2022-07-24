@@ -1,4 +1,4 @@
-package com.wywm.superconsole.controller.user;
+package com.wywm.superconsole.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

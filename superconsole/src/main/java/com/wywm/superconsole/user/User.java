@@ -1,4 +1,4 @@
-package com.wywm.superconsole.controller.user;
+package com.wywm.superconsole.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
