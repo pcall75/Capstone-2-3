@@ -21,6 +21,12 @@ public class AppController {
 		return "index";
 	}
 
+	@GetMapping("/index")
+	public String logoutPage() {return "index";}
+
+	@GetMapping("/menu")
+	public String menuPage() {return "menu";}
+
 	@GetMapping("/register")
 	public String showRegistrationForm(Model model) {
 		model.addAttribute("user", new User());
@@ -36,7 +42,7 @@ public class AppController {
 
 		userRepo.save(user);
 
-		return "register_success";
+		return "menu";
 	}
 
 	@GetMapping("/users")
