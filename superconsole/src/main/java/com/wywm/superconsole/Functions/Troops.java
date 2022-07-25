@@ -1,4 +1,4 @@
-package com.example.SupervisorConsole.Functions;
+package com.wywm.superconsole.Functions;
 
 public class Troops {
 

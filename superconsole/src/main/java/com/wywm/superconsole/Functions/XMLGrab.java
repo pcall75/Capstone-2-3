@@ -1,4 +1,4 @@
-package com.example.SupervisorConsole.Functions;
+package com.wywm.superconsole.Functions;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

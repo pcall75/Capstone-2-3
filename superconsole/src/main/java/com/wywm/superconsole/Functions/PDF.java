@@ -1,6 +1,7 @@
-package com.example.SupervisorConsole.Functions;
+package com.wywm.superconsole.Functions;
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.List;
 import com.itextpdf.text.ListItem;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.Collections;
-import java.util.List;
+
 
 @RestController
 @RequestMapping(path = "api/v1/pdflist")
@@ -26,7 +27,7 @@ public class PDF {
 
             // Create OutputStream instance.
             OutputStream outputStream = new FileOutputStream(
-                    new File("/Users/patrick/Documents/GitHub/CapstoneOne/src/desc.pdf"));
+                    new File("/Users/patrick/Documents/GitHub/Capstone-2-3/superconsole/src/PDF Output"));
 
             // Create PDFWriter instance.
             PdfWriter.getInstance(document, outputStream);
