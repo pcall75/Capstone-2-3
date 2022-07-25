@@ -27,7 +27,7 @@ public class PDF {
 
             // Create OutputStream instance.
             OutputStream outputStream = new FileOutputStream(
-                    new File("/Users/patrick/Documents/GitHub/Capstone-2-3/superconsole/src/PDF Output"));
+                    new File("/Users/patrick/Documents/GitHub/Capstone-2-3/superconsole/src/PDF Output/desc.pdf"));
 
             // Create PDFWriter instance.
             PdfWriter.getInstance(document, outputStream);
@@ -63,7 +63,7 @@ public class PDF {
 
             // Create OutputStream instance.
             OutputStream outputStream = new FileOutputStream(
-                    new File("/Users/patrick/Documents/GitHub/CapstoneOne/src/asc.pdf"));
+                    new File("/Users/patrick/Documents/GitHub/Capstone-2-3/superconsole/src/PDF Output/asc.pdf"));
 
             // Create PDFWriter instance.
             PdfWriter.getInstance(document, outputStream);
