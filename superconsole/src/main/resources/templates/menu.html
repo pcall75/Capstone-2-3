@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Troop Tracker</title>
+	<link rel="stylesheet" type="text/css" href="/css/main.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<style th:inline="text">
+		body {
+			background: url([[@{/images/225.png}]]) no-repeat center center fixed;
+		}
+	</style>
+</head>
+
+<body>
+<ul>
+
+	<li style="float:right"><a class="active" th:href="logout">Logout</a> </li>
+</ul>
+
+<div class="centerindex">
+	<img th:src="@{/images/logo.png}" width=" 700" height="300" alt="TroopTracker">
+
+		<h1>View List of Soldiers</h1>
+		<h2></h2>
+		<a th:href="@{/****}" class="button primary">Ascending</a>
+		<a th:href="@{/****}" class="button primary">Descending</a>
+		<p></p>
+		<p></p>
+		<h1>Export To PDF</h1>
+		<a th:href="@{/****}" class="button primary">Ascending</a>
+		<a th:href="@{/****}" class="button primary">Descending</a>
+
+
+
+</div>
+</body>
+</html>
