@@ -1,10 +1,9 @@
 package com.wywm.superconsole.user;
 
-import java.util.Collection;
-
-import com.wywm.superconsole.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
 
 public class TroopUserDetails implements UserDetails {
 
