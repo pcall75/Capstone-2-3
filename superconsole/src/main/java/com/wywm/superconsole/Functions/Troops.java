@@ -13,7 +13,7 @@ public class Troops {
     public Troops(String tagName) {
     }
 
-    public String getFullName() {
+    public  String getFullName() {
         return fullName;
     }
 
@@ -21,7 +21,7 @@ public class Troops {
         this.fullName = fullName;
     }
 
-    public int getId() {
+    public  int getId() {
         return id;
     }
 
