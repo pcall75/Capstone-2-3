@@ -41,9 +41,16 @@
 </head>
 
 <body>
+<ul>
+
+	<li style="float:right"><a class="active" th:href="logout">Logout</a> </li>
+	<li style="float:right"><a class="active" th:href="menu">Home</a> </li>
+
+
+</ul>
 	<div class="container text-center">
 		<div class="centerindex">
-			<img th:src="@{/images/logo.png}" width=" 700" height="300" alt="TroopTracker">
+			<img th:src="@{/images/logo.png}" width=" 900" height="100" alt="TroopTracker">
 			<h1>Soldier Registration</h1>
 
 			<form th:action="@{/process_register}" th:object="${user}" method="post">
@@ -90,7 +97,9 @@
 				<div>
 					<button type="submit" class="button primary">Sign Up</button>
 				</div>
+
 		</form>
+			</div>
 	</div>
 </body>
 

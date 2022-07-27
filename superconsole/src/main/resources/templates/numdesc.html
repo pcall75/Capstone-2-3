@@ -11,17 +11,168 @@
 		body {
 			background: url([[@{/images/225.png}]]) no-repeat center center fixed;
 		}
+				ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+	font-family: "Segoe", "Segoe UI", "DejaVu Sans", "Trebuchet MS", "Verdana", "sans-serif";
+	font color: #FFFFFF;
+}
+
+li a:hover:not(.active) {
+  background-color: #3eb08f;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    background-color: #000000;
+    border-radius: 0.35em;
+    border: solid 3px #a3a1a1;
+    color: #FFFFFF !important;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 1000;
+    height: 3.15em;
+    height: calc(2.75em + 6px);
+    line-height: 2.75em;
+    min-width: 3em;
+    padding: 0 1em;
+    text-align: center;
+    font-family: Roboto Bold;
+    font-size: 24px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:hover {
+    border-color: #49bf9d;
+    color: #49bf9d !important;
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active,
+.button:active {
+    background-color: rgba(73, 191, 157, 0.1);
+    border-color: #49bf9d;
+    color: #49bf9d !important;
+}
+
+input[type="submit"].icon,
+input[type="reset"].icon,
+input[type="button"].icon,
+.button.icon {
+    padding-left: 1.35em;
+}
+
+input[type="submit"].icon:before,
+input[type="reset"].icon:before,
+input[type="button"].icon:before,
+.button.icon:before {
+    margin-right: 0.5em;
+}
+
+input[type="submit"].fit,
+input[type="reset"].fit,
+input[type="button"].fit,
+.button.fit {
+    min-width: 0;
+    width: 100%;
+}
+
+input[type="submit"].small,
+input[type="reset"].small,
+input[type="button"].small,
+.button.small {
+    font-size: 0.8em;
+}
+
+input[type="submit"].large,
+input[type="reset"].large,
+input[type="button"].large,
+.button.large {
+    font-size: 1.35em;
+}
+
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary,
+.button.primary {
+    background-color: #49bf9d;
+    border-color: #49bf9d;
+    color: #ffffff !important;
+}
+
+input[type="submit"].primary:hover,
+input[type="reset"].primary:hover,
+input[type="button"].primary:hover,
+.button.primary:hover {
+    background-color: #5cc6a7;
+    border-color: #5cc6a7;
+}
+
+input[type="submit"].primary:active,
+input[type="reset"].primary:active,
+input[type="button"].primary:active,
+.button.primary:active {
+    background-color: #3eb08f;
+    border-color: #3eb08f;
+}
+
+input[type="submit"].disabled,
+input[type="submit"]:disabled,
+input[type="reset"].disabled,
+input[type="reset"]:disabled,
+input[type="button"].disabled,
+input[type="button"]:disabled,
+.button.disabled,
+.button:disabled {
+    background-color: #e7e7e7 !important;
+    border-color: #e7e7e7 !important;
+    color: #b2b2b2 !important;
+    cursor: default;
+}
 	</style>
 </head>
 
 <body>
-<div class="container text-center">
-  <div>
-    <form th:action="@{/logout}" method="post">
+<ul>
+<li style="float:right"><a class="active" th:href="logout">Logout</a> </li>
+<li style="float:right"><a class="active" th:href="register">New User Registration</a> </li>
+<li style="float:right"><a class="active" th:href="menu">Home</a> </li>
+</ul>
 
-      <input type="submit" value="Sign Out" />
-    </form>
-  </div>
+<div class="container text-center">
+  <img th:src="@{/images/logo.png}" width=" 900" height="100" alt="TroopTracker">
   <div>
     <h1>List of Soldiers Deployed in descending order</h1>
   </div>
@@ -38,7 +189,7 @@
       </thead>
       <tbody>
 
-      <a th:href="@{/menu}" class="button primary">Back to Menu</a>
+      <a th:href="@{/numasc}" class="button primary">Ascending</a>
 
       <tr th:each="descList:${DescList}">
         <td th:text=${descList.id}>ID</td>>

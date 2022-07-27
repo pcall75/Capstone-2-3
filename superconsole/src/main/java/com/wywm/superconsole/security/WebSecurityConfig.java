@@ -49,8 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests()
-				.antMatchers("/register/**").hasAuthority("ADMIN")
-
+				.antMatchers("/register/**","/export/**").hasAuthority("ADMIN")
 				.anyRequest()
 				.permitAll()
 				.and()
@@ -60,8 +59,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.logout()
 				.logoutUrl("/logout")
-				.logoutSuccessUrl("/index")
-				.permitAll();
+				.logoutSuccessUrl("/index").permitAll()
+				.and()
+				.exceptionHandling().accessDeniedPage("/403");;
 	}
 
 }
