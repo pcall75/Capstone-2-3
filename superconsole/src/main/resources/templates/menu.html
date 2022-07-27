@@ -1,6 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Troop Tracker</title>
@@ -18,16 +17,11 @@
 <ul>
 
 	<li style="float:right"><a class="active" th:href="logout">Logout</a> </li>
-	<li style="float:right"><a class="active" th:href="register">New User Registration</a> </li>
-	<li style="float:right"><a class="active" th:href="users">Registered Users</a> </li>
 
 </ul>
 
 <div class="centerindex">
-	<img th:src="@{/images/logo.png}" width=" 900" height="100" alt="TroopTracker">
-	<div sec:authorize="isAuthenticated()">
-		Welcome <h2><span> [[${#request.userPrincipal.principal.fullName}]] </span> &nbsp; [[${#request.userPrincipal.principal.authorities}]]</h2>
-	</div>
+	<img th:src="@{/images/logo.png}" width=" 700" height="300" alt="TroopTracker">
 
 		<h1>View List of Soldiers</h1>
 		<h2></h2>

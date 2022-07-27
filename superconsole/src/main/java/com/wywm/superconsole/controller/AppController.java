@@ -35,7 +35,7 @@ public class AppController {
 	@Autowired
 	private UserRepository userRepo;
 
-	@GetMapping("")
+	@GetMapping("/")
 	public String viewHomePage() {
 		return "index";
 	}
@@ -77,7 +77,7 @@ public class AppController {
 		List<Troops> TroopList = new LinkedList<>();
 		try {
 			// File path to the XML file.
-			Path filePath = Paths.get("/Users/patrick/Documents/GitHub/Capstone-2-3/superconsole/src/dataset.xml");
+			Path filePath = Paths.get("/Users/patrick/Documents/GitHub/CapstoneOne/src/dataset.xml");
 			File file = new File(String.valueOf(filePath.toAbsolutePath()));
 
 			if (file.exists()) {
@@ -171,10 +171,6 @@ public class AppController {
 		UserPDFExporter exporter = new UserPDFExporter(listTroops);
 		exporter.export(DescResponse);
 
-	}
-	@GetMapping("/403")
-	public String error403() {
-		return "403";
 	}
 
 
