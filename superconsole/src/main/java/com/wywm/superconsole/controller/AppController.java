@@ -77,7 +77,7 @@ public class AppController {
 		List<Troops> TroopList = new LinkedList<>();
 		try {
 			// File path to the XML file.
-			Path filePath = Paths.get("C:\\Users\\amani\\OneDrive\\WYWM\\Java\\Capstone 1\\dataset.xml");
+			Path filePath = Paths.get("/Users/patrick/Documents/GitHub/Capstone-2-3/superconsole/src/dataset.xml");
 			File file = new File(String.valueOf(filePath.toAbsolutePath()));
 
 			if (file.exists()) {

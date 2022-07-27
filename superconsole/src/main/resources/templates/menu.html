@@ -23,7 +23,10 @@
 </ul>
 
 <div class="centerindex">
-	<img th:src="@{/images/logo.png}" width=" 700" height="300" alt="TroopTracker">
+	<img th:src="@{/images/logo.png}" width=" 900" height="100" alt="TroopTracker">
+	<p>
+		Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+	</p>
 
 		<h1>View List of Soldiers</h1>
 		<h2></h2>
