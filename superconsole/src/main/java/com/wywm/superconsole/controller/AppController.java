@@ -41,10 +41,14 @@ public class AppController {
 	}
 
 	@GetMapping("/index")
-	public String logoutPage() {return "index";}
+	public String logoutPage() {
+		return "index";
+	}
 
 	@GetMapping("/menu")
-	public String menuPage() {return "menu";}
+	public String menuPage() {
+		return "menu";
+	}
 
 	@GetMapping("/register")
 	public String showRegistrationForm(Model model) {
@@ -71,9 +75,10 @@ public class AppController {
 
 		return "users";
 	}
+
 	// Reads data from an XML file and copys the data to a List (List<User>
 	// userList).
-	public  List<Troops> getTroops() {
+	public List<Troops> getTroops() {
 		List<Troops> TroopList = new LinkedList<>();
 		try {
 			// File path to the XML file.
@@ -85,7 +90,7 @@ public class AppController {
 				DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 				Document document = documentBuilder.parse(String.valueOf(filePath.toAbsolutePath()));
 				// Reads the XML tagName of full_name and id.
-				NodeList[] user = { document.getElementsByTagName("full_name"), document.getElementsByTagName("id") };
+				NodeList[] user = {document.getElementsByTagName("full_name"), document.getElementsByTagName("id")};
 
 				for (int i = 0; i < user[0].getLength(); i++) {
 
@@ -104,6 +109,7 @@ public class AppController {
 		return TroopList;
 
 	}
+
 	@RequestMapping(value = "/numasc", method = RequestMethod.GET)
 	public String listAsc(Model model) {
 		List<Troops> ascList = getNumAsc();
@@ -112,7 +118,7 @@ public class AppController {
 	}
 
 
-	public List<Troops> getNumAsc( ) {
+	public List<Troops> getNumAsc() {
 		List<Troops> ascList = new LinkedList<Troops>();
 		ascList.addAll(getTroops());
 		ascList.sort((u1, u2) -> u1.getId() - u2.getId());
@@ -126,14 +132,12 @@ public class AppController {
 		return "numdesc";
 	}
 
-	public  List<Troops> getNumDes() {
+	public List<Troops> getNumDes() {
 		List<Troops> desList = new LinkedList<Troops>();
 		desList.addAll(getTroops());
 		desList.sort((u1, u2) -> u2.getId() - u1.getId());
 		return desList;
 	}
-
-
 
 
 	@GetMapping("/export/pdfasc")
@@ -149,11 +153,10 @@ public class AppController {
 		List<Troops> listTroops = getNumAsc();
 
 
-	 UserPDFExporter exporter = new UserPDFExporter(listTroops);
+		UserPDFExporter exporter = new UserPDFExporter(listTroops);
 		exporter.export(Ascresponse);
 
 	}
-
 
 
 	@GetMapping("/export/pdfdesc")
@@ -172,86 +175,10 @@ public class AppController {
 		exporter.export(DescResponse);
 
 	}
+
 	@GetMapping("/403")
 	public String error403() {
 		return "403";
 	}
-
-/*
-
-	public void PdfAsc(HttpServletResponse response) throws DocumentException, IOException {
-
-		try {
-
-			// Create Document instance.
-			com.itextpdf.text.Document document = new com.itextpdf.text.Document();
-
-			// Create OutputStream instance.
-			OutputStream outputStream = new FileOutputStream(
-					new File("C:\\Users\\amani\\OneDrive\\WYWM\\Java\\Capstone 1\\asc.pdf"));
-
-
-			// Create PDFWriter instance.
-			PdfWriter.getInstance(document, outputStream);
-
-			// Open the document.
-			document.open();
-
-			// Create asc List
-			com.itextpdf.text.List ascList = new com.itextpdf.text.List(com.itextpdf.text.List.ORDERED);
-			ascList.add(new ListItem(String.valueOf((getNumAsc()))));
-
-			// Add casdList to the pdf.
-			document.add(ascList);
-
-			// Close document and outputStream.
-			document.close();
-			outputStream.close();
-
-			System.out.println("\n" + "\n" + "PDF created successfully");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	public void pdfDesc() {
-
-		try {
-			// Create Document instance.
-			com.itextpdf.text.Document document = new com.itextpdf.text.Document();
-
-			// Create OutputStream instance.
-			OutputStream outputStream = new FileOutputStream(
-					new File("C:\\Users\\amani\\OneDrive\\WYWM\\Java\\Capstone 1\\desc.pdf"));
-
-			// Create PDFWriter instance.
-			PdfWriter.getInstance(document, outputStream);
-
-			// Open the document.
-			document.open();
-
-			// Create reverseOrder list.
-			com.itextpdf.text.List descList = new com.itextpdf.text.List(com.itextpdf.text.List.ORDERED);
-			descList.add(new ListItem(String.valueOf((getNumDes()))));
-			Collections.reverseOrder();
-
-			// Add descList.
-			document.add(descList);
-			// document.add(unorderedList);
-
-			// Close document and outputStream.
-			document.close();
-			outputStream.close();
-
-			System.out.println("\n" + "\n" + "PDF created successfully");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/
-
-
-
 
 }
