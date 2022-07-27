@@ -1,5 +1,7 @@
 package com.wywm.superconsole.user;
 
+import com.wywm.superconsole.security.Role;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,6 +11,7 @@ import java.util.Set;
 public class User {
 
 	@Id
+	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
@@ -26,8 +29,31 @@ public class User {
 
 	@Column(name = "last_name", nullable = false, length = 20)
 	private String lastName;
+	private String isEnabled;
 
+	public String getIsEnabled() {
+		return isEnabled;
+	}
 
+	public void setIsEnabled(String isEnabled) {
+		this.isEnabled = isEnabled;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(
+			name = "users_roles",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id")
+	)
+	private Set<Role> roles = new HashSet<>();
 
 	public Long getId() {
 		return id;
