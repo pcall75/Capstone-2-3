@@ -18,6 +18,7 @@ public class TroopUserDetails implements UserDetails {
 		this.user = user;
 	}
 
+//	Returns the passwords for the user
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set<Role> roles = user.getRoles();

@@ -18,16 +18,16 @@
 <ul>
 
 	<li style="float:right"><a class="active" th:href="logout">Logout</a> </li>
-	<li style="float:right"><a class="active" th:href="index">Home</a> </li>
+	<li style="float:right"><a class="active" th:href="menu">Home</a> </li>
 
 
 </ul>
 
 <div class="centerindex">
 	<img th:src="@{/images/logo.png}" width=" 900" height="100" alt="TroopTracker">
-	<h2>
+	<h1>
 		Sorry [[${#request.userPrincipal.principal.fullName}]] you don't have permission!
-	</h2>
+	</h1>
 
 </div>
 </body>

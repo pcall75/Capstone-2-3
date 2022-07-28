@@ -2,6 +2,8 @@ package com.wywm.superconsole.security;
 
 import javax.persistence.*;
 
+//Creates the roles table
+
 @Entity
 @Table(name = "roles")
 public class Role {

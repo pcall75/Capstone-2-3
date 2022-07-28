@@ -6,7 +6,7 @@
 	<title>Registration Success</title>
 	<style th:inline="text">
 		body {
-			background: url([[@{/images/olive-green.jpg}]]) no-repeat center center fixed;
+			background: url([[@{/images/regsuccess.png}]]) no-repeat center center fixed;
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -15,12 +15,18 @@
 </head>
 
 <body>
-	<div class="centerindex">
-		<img th:src="@{/images/Logo.png}" width=" 700" height="300" alt="TroopTracker">
-		<h2>Soldier added successfully!</h2>
-		<a th:href="@{/}" class="button primary">Menu</a>
-		<a th:href="@{/login}" class="button primary">Sign Out</a>
-	</div>
+<ul>
+
+	<li style="float:right"><a class="active" th:href="logout">Logout</a> </li>
+	<li style="float:right"><a class="active" th:href="users">Registered Users</a> </li>
+	<li style="float:right"><a class="active" th:href="menu">Home</a> </li>
+
+</ul>
+	<div><center>
+		<img th:src="@{/images/Logo.png}" width=" 900" height="100" alt="TroopTracker">
+
+
+	</center></div>
 
 </body>
 

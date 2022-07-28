@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 
+//	An AuthenticationProvider implementation that retrieves user details from a UserDetailsService.
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -48,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests()
-				.antMatchers("/register/**","/export/**").hasAuthority("ADMIN")
+				.antMatchers("/register/**","/pdfasc/**","/pdfdesc/**").hasAuthority("ADMIN")
 				.anyRequest()
 				.permitAll()
 				.and()

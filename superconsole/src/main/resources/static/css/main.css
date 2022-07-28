@@ -183,7 +183,7 @@ input[type="button"]:disabled,
 
 /* Style the active class (and buttons on mouse-over) */
 .active {
-    color: #5000f1;
+    color: #FFFFFF;
 }
 
 .option:hover {
