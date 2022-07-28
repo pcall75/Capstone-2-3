@@ -7,6 +7,30 @@
 	<link rel="stylesheet" type="text/css" href="/css/main.css"  />
 	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<style>
+#troopstable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#troopstable  td, #troopstable  th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#troopstable  tr:nth-child(even){background-color: #f2f2f2;}
+
+#troopstable  tr:hover {background-color: #ddd;}
+
+#troopstable  th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
 </head>
 
 <body>
@@ -20,7 +44,7 @@
 		<div><center>
 
 				<p>
-					Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+			<h2>Welcome <span> [[${#request.userPrincipal.principal.fullName}]] </span> &nbsp; [[${#request.userPrincipal.principal.authorities}]]</h2>
 				</p>
 		</center></div>
 
@@ -30,7 +54,7 @@
 			<h1>Registered Users</h1>
 
 
-			<table class="table table-striped table-bordered">
+			<table id="troopstable">
 				<thead class="thead-dark">
 					<tr>
 						<th>User ID</th>

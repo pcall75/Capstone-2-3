@@ -26,18 +26,18 @@
 <div class="centerindex">
 	<img th:src="@{/images/logo.png}" width=" 900" height="100" alt="TroopTracker">
 	<div sec:authorize="isAuthenticated()">
-		Welcome <h2><span> [[${#request.userPrincipal.principal.fullName}]] </span> &nbsp; [[${#request.userPrincipal.principal.authorities}]]</h2>
+		<h2>Welcome <span> [[${#request.userPrincipal.principal.fullName}]] </span> &nbsp; [[${#request.userPrincipal.principal.authorities}]]</h2>
 	</div>
 
-		<h1>View List of Soldiers</h1>
-		<h2></h2>
+		<h2>View List of Soldiers</h2>
+		<br>
 		<a th:href="@{/numasc}" class="button primary">Ascending</a>
 		<a th:href="@{/numdesc}" class="button primary">Descending</a>
 		<p></p>
 		<p></p>
-		<h1>Export To PDF</h1>
-		<a th:href="@{/export/pdfasc}" class="button primary">Ascending</a>
-		<a th:href="@{/export/pdfdesc}" class="button primary">Descending</a>
+		<h2>Export To PDF</h2>
+		<a th:href="@{/pdfasc}" class="button primary">Ascending</a>
+		<a th:href="@{/pdfdesc}" class="button primary">Descending</a>
 
 
 

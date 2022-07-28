@@ -13,22 +13,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
+import static com.wywm.superconsole.Functions.ListAsc.getNumAsc;
+import static com.wywm.superconsole.Functions.ListDesc.getNumDes;
+
+
+//Controller Layer/AP Layer - This layer job is simply to receive and handle HTTP (GET, POST, PUT, DELETE) requests sent clients.
 @Controller
 public class AppController {
 
@@ -52,7 +49,7 @@ public class AppController {
 
 		return "signup_form";
 	}
-
+//	Encodes password
 	@PostMapping("/process_register")
 	public String processRegister(User user) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -61,9 +58,9 @@ public class AppController {
 
 		userRepo.save(user);
 
-		return "menu";
+		return "register_success";
 	}
-
+//Reads the user database
 	@GetMapping("/users")
 	public String listUsers(Model model) {
 		List<User> listUsers = userRepo.findAll();
@@ -71,39 +68,8 @@ public class AppController {
 
 		return "users";
 	}
-	// Reads data from an XML file and copys the data to a List (List<User>
-	// userList).
-	public  List<Troops> getTroops() {
-		List<Troops> TroopList = new LinkedList<>();
-		try {
-			// File path to the XML file.
-			Path filePath = Paths.get("/Users/patrick/Documents/GitHub/Capstone-2-3/superconsole/src/dataset.xml");
-			File file = new File(String.valueOf(filePath.toAbsolutePath()));
 
-			if (file.exists()) {
-				DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-				DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-				Document document = documentBuilder.parse(String.valueOf(filePath.toAbsolutePath()));
-				// Reads the XML tagName of full_name and id.
-				NodeList[] user = { document.getElementsByTagName("full_name"), document.getElementsByTagName("id") };
-
-				for (int i = 0; i < user[0].getLength(); i++) {
-
-					String fullName = user[0].item(i).getTextContent();
-					int id = Integer.parseInt(user[1].item(i).getTextContent());
-					Troops newTroop = new Troops(fullName, id);
-					TroopList.add(newTroop);
-				}
-			} else {
-				System.out.println("File not found");
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		// Returns the TroopList with data from the XML file.
-		return TroopList;
-
-	}
+//	Data sort Functions
 	@RequestMapping(value = "/numasc", method = RequestMethod.GET)
 	public String listAsc(Model model) {
 		List<Troops> ascList = getNumAsc();
@@ -112,13 +78,6 @@ public class AppController {
 	}
 
 
-	public List<Troops> getNumAsc( ) {
-		List<Troops> ascList = new LinkedList<Troops>();
-		ascList.addAll(getTroops());
-		ascList.sort((u1, u2) -> u1.getId() - u2.getId());
-		return ascList;
-	}
-
 	@RequestMapping(value = "/numdesc", method = RequestMethod.GET)
 	public String listDesc(Model model) {
 		List<Troops> descList = getNumDes();
@@ -126,17 +85,8 @@ public class AppController {
 		return "numdesc";
 	}
 
-	public  List<Troops> getNumDes() {
-		List<Troops> desList = new LinkedList<Troops>();
-		desList.addAll(getTroops());
-		desList.sort((u1, u2) -> u2.getId() - u1.getId());
-		return desList;
-	}
-
-
-
-
-	@GetMapping("/export/pdfasc")
+//	PDF Export Functions
+	@GetMapping("/pdfasc")
 	public void AscexportToPDF(HttpServletResponse Ascresponse) throws DocumentException, IOException {
 		Ascresponse.setContentType("application/pdf");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
@@ -155,8 +105,7 @@ public class AppController {
 	}
 
 
-
-	@GetMapping("/export/pdfdesc")
+	@GetMapping("/pdfdesc")
 	public void DescexportToPDF(HttpServletResponse DescResponse) throws DocumentException, IOException {
 		DescResponse.setContentType("application/pdf");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
@@ -172,6 +121,7 @@ public class AppController {
 		exporter.export(DescResponse);
 
 	}
+//	Error 403 return
 	@GetMapping("/403")
 	public String error403() {
 		return "403";

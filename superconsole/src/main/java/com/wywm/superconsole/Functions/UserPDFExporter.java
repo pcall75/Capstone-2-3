@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+
+//  Export to PDF Function
 public class UserPDFExporter {
 
     private List<Troops> listTroops;
 
 
 
-
+// Data extracted from listTroops
     public  UserPDFExporter(List<Troops> listTroops) {
          this.listTroops = listTroops;
     }
 
+//    Table Format
     private void writeTableHeader(PdfPTable table) {
         PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(BaseColor.WHITE);
@@ -37,6 +40,7 @@ public class UserPDFExporter {
 
     }
 
+//    Write Table Function
     private void writeTableData(PdfPTable table) {
         for ( Troops Troops : listTroops) {
             table.addCell(String.valueOf(Troops.getId()));

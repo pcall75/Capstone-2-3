@@ -49,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests()
-				.antMatchers("/register/**","/export/**").hasAuthority("ADMIN")
+				.antMatchers("/register/**","/pdfasc/**","/pdfdesc/**").hasAuthority("ADMIN")
 				.anyRequest()
 				.permitAll()
 				.and()
