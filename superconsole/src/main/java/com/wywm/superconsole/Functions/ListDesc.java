@@ -3,6 +3,7 @@ package com.wywm.superconsole.Functions;
 import java.util.LinkedList;
 import java.util.List;
 
+//Gets the XML list in Descending order and stores it in a new linked-list
 public class ListDesc {
 
     public static List<Troops> getNumDes() {
