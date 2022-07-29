@@ -10,6 +10,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+
+//Service Layer - Checks if a user exists?
 public class TroopUserDetails implements UserDetails {
 
 	private User user;

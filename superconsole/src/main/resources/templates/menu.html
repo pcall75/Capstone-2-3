@@ -34,10 +34,12 @@
 		<a th:href="@{/numdesc}" class="button primary">Descending</a>
 		<p></p>
 		<p></p>
-		<h2>Export To PDF</h2>
+
+	<div sec:authorize="hasAnyAuthority('ADMIN')">
+		<h2> Export To PDF</h2>
 		<a th:href="@{/pdfasc}" class="button primary">Ascending</a>
 		<a th:href="@{/pdfdesc}" class="button primary">Descending</a>
-
+</div>
 
 
 </div>

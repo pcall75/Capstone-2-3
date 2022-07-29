@@ -25,7 +25,7 @@ import static com.wywm.superconsole.Functions.ListAsc.getNumAsc;
 import static com.wywm.superconsole.Functions.ListDesc.getNumDes;
 
 
-//Controller Layer/AP Layer - This layer job is simply to receive and handle HTTP (GET, POST, PUT, DELETE) requests sent clients.
+//Controller Layer/AP Layer - This layers job is simply to receive and handle HTTP (GET, POST, PUT, DELETE) requests sent from clients.
 @Controller
 public class AppController {
 

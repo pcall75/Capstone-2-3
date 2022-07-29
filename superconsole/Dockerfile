@@ -1,10 +1,7 @@
 
 FROM openjdk:11
 
-RUN mkdir /superconsole
+COPY target/TroopTracker-1.0.jar TroopTracker-1.0.jar
+ADD target/TroopTracker-1.0.jar TroopTracker-1.0.jar
 
-COPY target/classes/com/wywm/superconsole/TroopTrackerApplication.class/ /superconsole
-
-WORKDIR /superconsole
-
-CMD java Main
+ENTRYPOINT ["java", "-jar", "/TroopTracker-1.0.jar"]

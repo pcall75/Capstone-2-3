@@ -18,7 +18,7 @@ public class UserPDFExporter {
 
 
 // Data extracted from listTroops
-    public  UserPDFExporter(List<Troops> listTroops) {
+    public UserPDFExporter(List<Troops> listTroops) {
          this.listTroops = listTroops;
     }
 
