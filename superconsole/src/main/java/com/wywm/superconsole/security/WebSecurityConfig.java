@@ -37,7 +37,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 		authProvider.setUserDetailsService(userDetailsService());
 		authProvider.setPasswordEncoder(passwordEncoder());
-
 		return authProvider;
 	}
 
@@ -64,5 +63,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.exceptionHandling().accessDeniedPage("/403");;
 	}
+
 
 }
