@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xml:lang="eng">
   <head>
     <meta charset="ISO-8859-1" />
     <div class="background"></div>
     <title>Welcome to TroopTracker</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script
-      type="text/javascript"
-      src="/webjars/bootstrap/js/bootstrap.min.js"
-    ></script>
     <style th:inline="text">
       body {
         background: url([[@{/images/background1.png}]]) no-repeat center center
@@ -19,22 +14,23 @@
   </head>
 
   <body>
-    <center>
+    <div class="center">
       <img
         th:src="@{/images/logo.png}"
         width=" 900"
         height="100"
         alt="TroopTracker"
       />
-    </center>
-    <br />
-    <br />
-    <br />
-    <center><h1>WELCOME TO TROOP TRACKER SUPERVISORS CONSOLE</h1></center>
-    <br />
 
-    <center><a th:href="@{/login}" class="button primary">Login</a></center>
-    <br />
-    <center><h2>AUTHORISED USERS ONLY!</h2></center>
+      <br />
+      <br />
+      <br />
+
+      <h1>WELCOME TO TROOP TRACKER SUPERVISORS CONSOLE</h1>
+      <br />
+      <a th:href="@{/login}" class="button primary">Login</a>
+      <br />
+      <h2>AUTHORISED USERS ONLY!</h2>
+    </div>
   </body>
 </html>
