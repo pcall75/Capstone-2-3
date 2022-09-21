@@ -13,7 +13,10 @@ import java.util.List;
 
 public class XmlGrab {
 
-    /* Reads data from an XML file and copies the data to a List (List<Troops> TroopList) */
+    /*
+     * Reads data from an XML file and copies the data to a List (List<Troops>
+     * TroopList)
+     */
     public static List<Troops> getTroops() {
         List<Troops> TroopList = new LinkedList<>();
         try {
@@ -26,7 +29,7 @@ public class XmlGrab {
                 DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
                 Document document = documentBuilder.parse(String.valueOf(filePath.toAbsolutePath()));
                 // Reads the XML tagName of full_name and id.
-                NodeList[] user = {document.getElementsByTagName("full_name"), document.getElementsByTagName("id")};
+                NodeList[] user = { document.getElementsByTagName("full_name"), document.getElementsByTagName("id") };
 
                 for (int i = 0; i < user[0].getLength(); i++) {
 
