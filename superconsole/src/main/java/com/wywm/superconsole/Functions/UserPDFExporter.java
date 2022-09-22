@@ -9,20 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-
 //  Export to PDF Function
 public class UserPDFExporter {
 
     private List<Troops> listTroops;
 
-
-
-// Data extracted from listTroops
+    // Data extracted from listTroops
     public UserPDFExporter(List<Troops> listTroops) {
-         this.listTroops = listTroops;
+        this.listTroops = listTroops;
     }
 
-//    Table Format
+    // Table Format
     private void writeTableHeader(PdfPTable table) {
         PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(BaseColor.WHITE);
@@ -40,9 +37,9 @@ public class UserPDFExporter {
 
     }
 
-//    Write Table Function
+    // Write Table Function
     private void writeTableData(PdfPTable table) {
-        for ( Troops Troops : listTroops) {
+        for (Troops Troops : listTroops) {
             table.addCell(String.valueOf(Troops.getId()));
             table.addCell(Troops.getFullName());
         }
@@ -58,13 +55,13 @@ public class UserPDFExporter {
         font.setColor(BaseColor.WHITE);
 
         Paragraph p = new Paragraph("List of Soldiers Deployed", font);
-        p.setAlignment(Paragraph.ALIGN_CENTER);
+        p.setAlignment(Element.ALIGN_CENTER);
 
         document.add(p);
 
         PdfPTable table = new PdfPTable(2);
         table.setWidthPercentage(100f);
-        table.setWidths(new float[] {3.0f, 3.0f});
+        table.setWidths(new float[] { 3.0f, 3.0f });
         table.setSpacingBefore(10);
 
         writeTableHeader(table);

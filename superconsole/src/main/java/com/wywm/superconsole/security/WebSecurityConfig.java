@@ -1,8 +1,6 @@
 package com.wywm.superconsole.security;
 
-
 import com.wywm.superconsole.user.TroopUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -13,14 +11,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.sql.DataSource;
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	@Autowired
-	private DataSource dataSource;
-
+	@Override
 	@Bean
 	public UserDetailsService userDetailsService() {
 		return new TroopUserDetailsService();
@@ -31,7 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 
-//	An AuthenticationProvider implementation that retrieves user details from a UserDetailsService.
+	// An AuthenticationProvider implementation that retrieves user details from a
+	// UserDetailsService.
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -47,22 +42,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http
-				.authorizeRequests()
-				.antMatchers("/register/**","/pdfasc/**","/pdfdesc/**").hasAuthority("ADMIN") /*Assign roles to pages*/
-				.anyRequest()
-				.permitAll()
-				.and()
-				.formLogin()
-				.usernameParameter("email")
-				.defaultSuccessUrl("/menu",true).permitAll()
-				.and()
-				.logout()
-				.logoutUrl("/logout")
-				.logoutSuccessUrl("/index").permitAll()
-				.and()
-				.exceptionHandling().accessDeniedPage("/403");;
+		http.authorizeRequests().antMatchers("/register/**", "/pdfasc/**", "/pdfdesc/**").hasAuthority("ADMIN") /*
+																												 * Assign
+																												 * roles
+																												 * to
+																												 * pages
+																												 */
+				.anyRequest().permitAll().and().formLogin().usernameParameter("email").defaultSuccessUrl("/menu", true)
+				.permitAll().and().logout().logoutUrl("/logout").logoutSuccessUrl("/index").permitAll().and()
+				.exceptionHandling().accessDeniedPage("/403");
 	}
-
 
 }

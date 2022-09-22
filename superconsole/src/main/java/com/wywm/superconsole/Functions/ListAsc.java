@@ -7,7 +7,7 @@ import java.util.List;
 public class ListAsc {
 
     public static List<Troops> getNumAsc() {
-        List<Troops> ascList = new LinkedList<Troops>();
+        List<Troops> ascList = new LinkedList<>();
         ascList.addAll(XmlGrab.getTroops());
         ascList.sort((u1, u2) -> u1.getId() - u2.getId());
         return ascList;

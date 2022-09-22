@@ -18,7 +18,7 @@ public class XmlGrab {
      * TroopList)
      */
     public static List<Troops> getTroops() {
-        List<Troops> TroopList = new LinkedList<>();
+        List<Troops> troopList = new LinkedList<>();
         try {
             // File path to the XML file.
             Path filePath = Paths.get("/Users/patrick/Documents/GitHub/Capstone-2-3/superconsole/src/dataset.xml");
@@ -36,7 +36,7 @@ public class XmlGrab {
                     String fullName = user[0].item(i).getTextContent();
                     int id = Integer.parseInt(user[1].item(i).getTextContent());
                     Troops newTroop = new Troops(fullName, id);
-                    TroopList.add(newTroop);
+                    troopList.add(newTroop);
                 }
             } else {
                 System.out.println("File not found");
@@ -45,6 +45,6 @@ public class XmlGrab {
             System.out.println(e.getMessage());
         }
         // Returns the TroopList with data from the XML file.
-        return TroopList;
+        return troopList;
     }
 }
