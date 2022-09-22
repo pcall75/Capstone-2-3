@@ -1,33 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xml:lang="eng">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Registration Success</title>
+    <style th:inline="text">
+      body {
+        background: url([[@{/images/regsuccess.png}]]) no-repeat center center
+          fixed;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="/webjars/bootstrap/js/bootstrap.min.js"
+    ></script>
+  </head>
 
-<head>
-	<meta charset="ISO-8859-1">
-	<title>Registration Success</title>
-	<style th:inline="text">
-		body {
-			background: url([[@{/images/regsuccess.png}]]) no-repeat center center fixed;
-		}
-	</style>
-	<link rel="stylesheet" type="text/css" href="/css/main.css" />
-	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-<ul>
-
-	<li style="float:right"><a class="active" th:href="logout">Logout</a> </li>
-	<li style="float:right"><a class="active" th:href="users">Registered Users</a> </li>
-	<li style="float:right"><a class="active" th:href="menu">Home</a> </li>
-
-</ul>
-	<div><center>
-		<img th:src="@{/images/Logo.png}" width=" 900" height="100" alt="TroopTracker">
-
-
-	</center></div>
-
-</body>
-
+  <body>
+    <ul>
+      <li style="float: right">
+        <a class="active" th:href="logout">Logout</a>
+      </li>
+      <li style="float: right">
+        <a class="active" th:href="users">Registered Users</a>
+      </li>
+      <li style="float: right"><a class="active" th:href="menu">Home</a></li>
+    </ul>
+    <div class="center">
+      <img
+        th:src="@{/images/Logo.png}"
+        width=" 900"
+        height="100"
+        alt="TroopTracker"
+      />
+    </div>
+  </body>
 </html>

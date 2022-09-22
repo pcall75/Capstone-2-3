@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Access Denied</title>
-	<link rel="stylesheet" type="text/css" href="/css/main.css" />
-	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-	<style th:inline="text">
-		body {
-			background: url([[@{/images/403.png}]]); background-size:100%;
-		}
-	</style>
-</head>
+<html xmlns:th="http://www.thymeleaf.org" xml:lang="eng">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Access Denied</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <style th:inline="text">
+      body {
+        background: url([[@{/images/403.png}]]);
+        background-size: 100%;
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
+    <ul>
+      <li style="float: right">
+        <a class="active" th:href="logout">Logout</a>
+      </li>
+      <li style="float: right"><a class="active" th:href="menu">Home</a></li>
+    </ul>
 
-<ul>
-
-	<li style="float:right"><a class="active" th:href="logout">Logout</a> </li>
-	<li style="float:right"><a class="active" th:href="menu">Home</a> </li>
-
-
-</ul>
-
-<div class="centerindex">
-	<img th:src="@{/images/logo.png}" width=" 900" height="100" alt="TroopTracker">
-	<h1>
-		Sorry [[${#request.userPrincipal.principal.fullName}]] you don't have permission!
-	</h1>
-
-</div>
-</body>
-
+    <div class="centerindex">
+      <img
+        th:src="@{/images/logo.png}"
+        width=" 900"
+        height="100"
+        alt="TroopTracker"
+      />
+      <h1>
+        Sorry [[${#request.userPrincipal.principal.fullName}]] you don't have
+        permission!
+      </h1>
+    </div>
+  </body>
 </html>
