@@ -7,9 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "users")   /* Creates users table in database */
+@Table(name = "users") /* Creates users table in database */
 public class User {
-/* @Column creates each of the relevant columns in the database */
+	/* @Column creates each of the relevant columns in the database */
 	@Id
 	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,13 +47,10 @@ public class User {
 		this.roles = roles;
 	}
 
-//	Creates a table called users_roles. Creates and fetches data from the roles and users tables with the column names of user_id and user_roles.
+	// Creates a table called users_roles. Creates and fetches data from the roles
+	// and users tables with the column names of user_id and user_roles.
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(
-			name = "users_roles",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "role_id")
-	)
+	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 
 	public Long getId() {
