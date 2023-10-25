@@ -10,11 +10,9 @@ import java.util.List;
 
 public class TroopUserDetailsService implements UserDetailsService {
 	@Autowired
-	private TroopUserDetailsService service;
-	@Autowired
 	private UserRepository userRepo;
 
-//	Locates the user by the Username
+	// Locates the user by the Username
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepo.findByEmail(username);
